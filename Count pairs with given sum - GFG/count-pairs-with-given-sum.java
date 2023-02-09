@@ -33,19 +33,14 @@ public class GFG {
 class Solution {
     int getPairsCount(int[] arr, int n, int k) {
         // code here
-        int ans = 0;
         HashMap<Integer, Integer> hm = new HashMap<>();
-        
-        for(int i = 0; i < n; i++) {
-            int b = arr[i];
-            if(hm.containsKey(k - b)) {
-                ans += hm.get(k - b);
-            }if(hm.containsKey(b)) {
-                hm.put(b, hm.get(b) + 1);
-            }else {
-                hm.put(b,1);
-            }
-        }
+        int ans = 0;
+         for(int i = 0; i < n; i++) {
+             if(hm.containsKey(k - arr[i])) {
+                 ans += hm.get(k - arr[i]);
+             }
+                 hm.put(arr[i],hm.getOrDefault(arr[i],0) + 1);
+         }
         return ans;
     }
 }
