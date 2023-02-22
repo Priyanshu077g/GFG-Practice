@@ -122,21 +122,24 @@ class Solution
            }
            
        }
-       
-       if(s == head){
+        if(s == head){
            while(f.next != s) {
                f = f.next;
            }
            f.next = null;
        }
-       if(s == f) {
-          s = head;
-          while(s.next != f.next) {
-              s = s.next;
-              f = f.next;
-          }
-            f.next = null;
-       }
+        
+        Node prev = null;
+        if(s == f) {
+            Node x = head;
+            while(x != s) {
+            prev = s;
+            s = s.next;
+            x = x.next;
+        }
+        prev.next = null;
+        }
+        
     }
 }
 
