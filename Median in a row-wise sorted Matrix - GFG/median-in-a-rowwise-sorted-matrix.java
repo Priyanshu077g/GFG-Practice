@@ -41,29 +41,31 @@ class Solution {
         // code here 
         int r = matrix.length;
         int c = matrix[0].length;
-        int lo = 0;
-        int high = r * c - 1;
-        int ans = 0;
-        sortMat(matrix, r,c);
-        int mid = (lo + high) / 2;
-        ans = matrix[mid / c][mid % c];
-        return ans;
+        // int lo = 0;
+        // int high = r * c - 1;
+        // int ans = 0;
+        return sortMat(matrix, r,c);
+        // int mid = (lo + high) / 2;
+        // ans = matrix[mid / c][mid % c];
+        // return ans;
     }
-     void sortMat(int mat[][], int r, int c)
+     int sortMat(int mat[][], int r, int c)
     {
-        int temp[] = new int[r * c];
-        int k = 0;
-     
-        for (int i = 0; i <r; i++)
-            for (int j = 0; j < c; j++)
-                temp[k++] = mat[i][j];
-     
-        Arrays.sort(temp);
-        
-        k = 0;
-        for (int i = 0; i < r; i++)
-            for (int j = 0; j < c; j++)
-                mat[i][j] = temp[k++];
+       int temp[] = new int[r *c];
+       int k = 0;
+       for (int i = 0; i < r; i++) {
+           for (int j = 0; j < c; j++) {
+               temp[k++] = mat[i][j];
+            }
+        }
+       Arrays.sort(temp);
+    //   k = 0;
+    //   for (int i = 0; i < r; i++) {
+    //         for(int j = 0; j < c; j++) {
+    //             mat[i][j] = temp[k++]; 
+    //         }
+    //   }
+       return temp[k / 2];
     }
    
 }
