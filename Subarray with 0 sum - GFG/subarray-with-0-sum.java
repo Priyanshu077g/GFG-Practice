@@ -45,19 +45,15 @@ class Solution{
     static boolean findsum(int arr[],int n)
     {
         //Your code here
-        HashMap<Integer, Integer> map = new HashMap<>();
-        int i = -1;
-        int sum = 0;
-        map.put(sum, i);
-        
-        while(i < arr.length - 1) {
-            i++;
-            sum += arr[i];
-            if(!map.containsKey(sum)) {
-                map.put(sum,i);
-            }else{
+        HashMap<Integer,Integer> hm = new HashMap<>();
+        hm.put(0, 1);
+        int prefixSum = 0;
+        for(int val : arr) {
+            prefixSum += val;
+            if(hm.containsKey(prefixSum)) {
                 return true;
             }
+            hm.put(prefixSum, hm.getOrDefault(prefixSum, 0) + 1);
         }
         return false;
     }
