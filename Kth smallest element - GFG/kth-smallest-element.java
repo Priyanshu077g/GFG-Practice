@@ -36,8 +36,14 @@ class GFG {
 class Solution{
     public static int kthSmallest(int[] arr, int l, int r, int k) 
     { 
-        //Your code here
-       Arrays.sort(arr);
-       return arr[k - 1];
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for(int val : arr) {
+            pq.add(val);
+        }
+        int ans = 0;
+        for(int i = 0; i < k ;i++) {
+            ans = pq.poll();
+        }
+        return ans;
     } 
 }
