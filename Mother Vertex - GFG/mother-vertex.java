@@ -54,7 +54,7 @@ class Solution
             }
         }
     }
-    static int count = 0;
+    static int count;
     public int findMotherVertex(int V, ArrayList<ArrayList<Integer>> graph)
     {
         // Code here
